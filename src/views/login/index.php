@@ -10,25 +10,25 @@
     <title>Login</title>
 
     <!-- Fontfaces CSS-->
-    <link href="public/css/font-face.css" rel="stylesheet" media="all">
-    <link href="public/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="public/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="public/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/css/font-face.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="public/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="public/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="public/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="public/vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="public/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="public/vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="public/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="public/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="public/css/theme.css" rel="stylesheet" media="all">
+    <link href="<?php echo URL ?>public/css/theme.css" rel="stylesheet" media="all">
 
 </head>
 
@@ -40,18 +40,21 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="public/images/icon/logo.png" alt="dev">
+                                <img src="<?php echo URL ?>public/images/icon/logo.png" alt="dev">
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" method="post">
+                            <form action="<?php echo URL ?>login/run" method="post">
+                            <?php 
+                                echo $this->msg;
+                            ?>
                                 <div class="form-group">
                                     <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+                                    <input class="au-input au-input--full" required type="email" name="email" placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
+                                    <input class="au-input au-input--full" required type="password" name="password" placeholder="Password">
                                 </div>
                                 <div class="login-checkbox">
                                     <label>
@@ -78,28 +81,28 @@
     </div>
 
     <!-- Jquery JS-->
-    <script src="public/vendor/jquery-3.2.1.min.js"></script>
+    <script src="<?php echo URL ?>public/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
-    <script src="public/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="public/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="<?php echo URL ?>public/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="<?php echo URL ?>public/vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS       -->
-    <script src="public/vendor/slick/slick.min.js">
+    <script src="<?php echo URL ?>public/vendor/slick/slick.min.js">
     </script>
-    <script src="public/vendor/wow/wow.min.js"></script>
-    <script src="public/vendor/animsition/animsition.min.js"></script>
-    <script src="public/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    <script src="<?php echo URL ?>public/vendor/wow/wow.min.js"></script>
+    <script src="<?php echo URL ?>public/vendor/animsition/animsition.min.js"></script>
+    <script src="<?php echo URL ?>public/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
     </script>
-    <script src="public/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="public/vendor/counter-up/jquery.counterup.min.js">
+    <script src="<?php echo URL ?>public/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="<?php echo URL ?>public/vendor/counter-up/jquery.counterup.min.js">
     </script>
-    <script src="public/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="public/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="public/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="public/vendor/select2/select2.min.js">
+    <script src="<?php echo URL ?>public/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="<?php echo URL ?>public/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="<?php echo URL ?>public/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="<?php echo URL ?>public/vendor/select2/select2.min.js">
     </script>
 
     <!-- Main JS-->
-    <script src="public/js/main.js"></script>
+    <script src="<?php echo URL ?>public/js/main.js"></script>
 
 </body>
 

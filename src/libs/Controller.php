@@ -21,7 +21,7 @@ class Controller
 			require $file;
 			//construct model name
 			$model_name = $path.'_model';
-			$model = new $model_name ();
+			$this->model = new $model_name ();
 
 			# code...
 		}

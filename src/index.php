@@ -7,6 +7,7 @@ require 'libs/View.php';
 
 // Database Construct
 require 'libs/Database.php';
+require 'libs/Session.php';
 
 //Config files
 require 'config/database.php';
