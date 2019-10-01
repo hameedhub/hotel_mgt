@@ -24,17 +24,9 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class=" has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-user"></i>Manage Staff</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                            <li>
-                                    <a href="index4.html">Add Staff</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">List of Staff</a>
-                                </li>
-                            </ul>
+                        <li>
+                            <a href="<?php echo URL?>staff">
+                                <i class="fas fa-users"></i>Staff</a>
                         </li>
                         <li>
                             <a href="chart.html">
