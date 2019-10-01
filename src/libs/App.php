@@ -24,8 +24,10 @@ class App
 		if (file_exists($file)) {
 			require $file;
 		}else{
-			require 'controllers/error.php';
-			$controllers = new Error();
+
+			throw new Error('Page not found');
+			// require 'controllers/error.php';
+			// $controllers = new Error();
 			return false;
 			
 		}

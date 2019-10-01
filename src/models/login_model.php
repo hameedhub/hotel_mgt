@@ -21,13 +21,14 @@ class Login_Model extends Model
 			':password'=> $password
 		));
 		// check the rowcount
-
 		if($sth->rowCount() > 0){
+			$data = $sth->fetchAll();
 			Session::init();
 			Session::set('loggedIn', true);
-			header('location: dashbord.php');
+			Session::set('data', $data[0]);
+			header('location: ../dashboard');
 		}else{
-			header('location: login.php');
+			header('location: ../login');
 		}
 	
 	}
