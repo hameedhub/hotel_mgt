@@ -18,20 +18,20 @@
                                             <img src="<?php echo URL ?>public/images/icon/icon.png" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#"><?php echo Session::get('data')['first_name']?> <?php echo Session::get('data')['last_name']?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="<?php echo URL ?>public/images/icon/icon.png" alt="John Doe" />
+                                                        <img src="<?php echo URL ?>public/images/icon/icon.png" alt="<?php echo Session::get('data')['first_name']?> <?php echo Session::get('data')['last_name']?>" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#"><?php echo Session::get('data')['first_name']?> <?php echo Session::get('data')['last_name']?></a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email"><?php echo Session::get('data')['email']?> </span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">

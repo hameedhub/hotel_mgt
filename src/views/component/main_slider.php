@@ -17,10 +17,10 @@
                                 <i class="fas fa-bed"></i>Room</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
-                                    <a href="room_type.php">Add Room Type</a>
+                                    <a href="<?php echo URL ?>room/type">Room Type</a>
                                 </li>
                                 <li>
-                                    <a href="room.php">Add Room</a>
+                                    <a href="<?php echo URL ?>room">Rooms</a>
                                 </li>
                             </ul>
                         </li>
