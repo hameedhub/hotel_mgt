@@ -150,44 +150,10 @@
 			</div>
 			<!-- end modal medium -->
 
-    <!-- Jquery JS-->
-    <script src="<?php echo URL ?>public/vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-
-    <?php
-      if(isset($this->js)){
-          foreach ($this->js as $js) {
-            echo '<script src="'.URL.'views/'.$js.'"></script>';
-          }
-      }
-    ?>
-
-
-
-
-    <script src="<?php echo URL ?>public/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="<?php echo URL ?>public/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="<?php echo URL ?>public/vendor/slick/slick.min.js">
-    </script>
-    <script src="<?php echo URL ?>public/vendor/wow/wow.min.js"></script>
-    <script src="<?php echo URL ?>public/vendor/animsition/animsition.min.js"></script>
-    <script src="<?php echo URL ?>public/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="<?php echo URL ?>public/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="<?php echo URL ?>public/vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="<?php echo URL ?>public/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="<?php echo URL ?>public/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="<?php echo URL ?>public/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="<?php echo URL ?>public/vendor/select2/select2.min.js"></script>
-
     <!-- full calendar requires moment along jquery which is included above -->
     <script src="<?php echo URL ?>public/vendor/fullcalendar-3.10.0/lib/moment.min.js"></script>
     <script src="<?php echo URL ?>public/vendor/fullcalendar-3.10.0/fullcalendar.js"></script>
 
-    <!-- Main JS-->
-    <script src="<?php echo URL ?>public/js/main.js"></script>
    
 
     <script type="text/javascript">

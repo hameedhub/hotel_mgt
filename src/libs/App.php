@@ -42,6 +42,9 @@ class App
 				$controller->{$url[1]}();
 			}
 		}
+		if(isset($url[1])){
+			$controller->screen();
+		}
 		$controller->index();
 
 	}

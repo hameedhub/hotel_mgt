@@ -16,6 +16,15 @@
 
     <!-- Jquery JS-->
     <script src="<?php echo URL ?>public/vendor/jquery-3.2.1.min.js"></script>
+    <?php
+      if(isset($this->js)){
+          foreach ($this->js as $js) {
+            echo '<script src="'.URL.'views/'.$js.'"></script>';
+          }
+      }
+    ?>
+
+
     <!-- Bootstrap JS-->
     <script src="<?php echo URL ?>public/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="<?php echo URL ?>public/vendor/bootstrap-4.1/bootstrap.min.js"></script>
