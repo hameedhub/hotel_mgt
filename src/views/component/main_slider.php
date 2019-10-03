@@ -29,19 +29,19 @@
                                 <i class="fas fa-users"></i>Staff</a>
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a href="<?php echo URL ?>booking">
                                 <i class="fas fa-chart-bar"></i>Booking</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a href="<?php echo URL ?>reservation">
                                 <i class="fas fa-table"></i>Reservation</a>
                         </li>
                         <li>
-                            <a href="form.html">
+                            <a href="<?php echo URL?>services">
                                 <i class="far fa-check-square"></i>Services</a>
                         </li>
                         <li>
-                            <a href="calendar.html">
+                            <a href="<?php URL?>history">
                                 <i class="fas fa-calendar-alt"></i>History</a>
                         </li>
                         <li>
