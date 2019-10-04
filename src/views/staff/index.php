@@ -102,8 +102,9 @@
 							</p>
 						</div>
 						<div class="modal-footer">
-							<a  href="<?php echo URL?>staff" class="btn btn-secondary" data-dismiss="modal">Close</a>
+							
               <input type="submit" class="btn btn-primary" value="Submit" />
+              <a  href="<?php echo URL?>staff" class="btn btn-secondary" data-dismiss="modal">Close</a>
               </form>
 						</div>
 					</div>

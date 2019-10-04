@@ -31,6 +31,7 @@ $(function(){
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>`);
+        $('#submit').attr('hidden', true);
        });
 
         return false;

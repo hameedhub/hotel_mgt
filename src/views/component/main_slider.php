@@ -11,8 +11,10 @@
                             <a href="<?php echo URL ?>dashboard">
                                 <i class="fas fa-chart-bar"></i>Dashboard</a>
                         </li>
+    <?php
+    if(Session::get('data')['access'] == manager || Session::get('data')['access'] == director ){ ?>
 
-                        <li class=" has-sub">
+                    <li class=" has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-bed"></i>Room</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -24,10 +26,14 @@
                                 </li>
                             </ul>
                         </li>
+
+
                         <li>
                             <a href="<?php echo URL?>staff">
                                 <i class="fas fa-users"></i>Staff</a>
                         </li>
+
+    <?php }; ?>
                         <li>
                             <a href="<?php echo URL ?>booking">
                                 <i class="fas fa-chart-bar"></i>Booking</a>
@@ -36,11 +42,16 @@
                             <a href="<?php echo URL ?>reservation">
                                 <i class="fas fa-table"></i>Reservation</a>
                         </li>
+    <?php if(Session::get('data')['access'] == manager || Session::get('data')['access'] == director ){?>
                         <li>
                             <a href="<?php echo URL?>services">
                                 <i class="far fa-check-square"></i>Services</a>
                         </li>
-                        
+                        <?php }?>  
+                        <li>
+                            <a href="<?php echo URL?>report">
+                                <i class="far fa-address-card"></i>Report</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
