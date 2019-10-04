@@ -11,6 +11,10 @@ class Dashboard extends Controller
             header('location: login');
             exit;
         };
+        if(Session::get('data')['access']== sales){
+            header('location: sales');
+        }
+
         $this->view->js = array('dashboard/js/default.js');
     }
     function logout(){

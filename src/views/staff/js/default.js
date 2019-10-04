@@ -28,7 +28,7 @@ $(function(){
             </div>
         </td>
         <td>
-            <span class="role admin">${o['access']}</span>
+            <span class="role user">${o['access']}</span>
         </td>
         <td>
             <div class="desc">

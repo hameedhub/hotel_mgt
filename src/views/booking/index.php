@@ -69,7 +69,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- modal medium -->
+
+                       <!-- Footer start here -->
+                        <?php require 'views/component/footer.php'?>
+
+                                                <!-- modal medium -->
 <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">
@@ -89,7 +93,7 @@
                                                 <div class="form-group">
                                                 <label for="guest" class=" form-control-label">Guest</label>
                                                 <select name="guest_id" required id="guest" class="form-control">
-                                                        <option value="0">Select Guest</option>
+                                                        <option value="">Select Guest</option>
                                                     </select>
                                                 </div>
                                                 </div>
@@ -97,7 +101,7 @@
                                                 <div class="form-group">
                                                 <label for="room" class=" form-control-label">Room</label>
                                                 <select name="room_id"  required id="rooms" class="form-control">
-                                                        <option value="0">Select Room</option>
+                                                        <option value="">Select Room</option>
                                                     </select>
 
                                                 </div>
@@ -163,13 +167,12 @@
 							</p>
 						</div>
 						<div class="modal-footer">
-							<a  href="booking" class="btn btn-secondary" data-dismiss="modal">Close</a>
-              <input type="submit" class="btn btn-primary" value="Submit" />
+							
+                        <input id="submit" type="submit" class="btn btn-primary" value="Save" />
+              <a href="<?php echo URL ?>booking" class="btn btn-secondary" data-dismiss="modal">Close</a>
               </form>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- end modal medium -->
-                       <!-- Footer start here -->
-                        <?php require 'views/component/footer.php'?>

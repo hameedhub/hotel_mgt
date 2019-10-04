@@ -187,32 +187,16 @@
                                                 </div>
                                                 </div>
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-6">
-                                                <div class="form-group">
-                                                <label class=" form-control-label">Room Type</label>
-                                                <select name="room_type" required id="selectType" class="form-control">
-                                                        <option value="0">Select Room Type</option>
-                                                        <option value="1">Option1</option>
-                                                    </select>
-                                                </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                <div class="form-group">
-                                                <label class=" form-control-label">Price</label>
-                                                <input type="text" name="price"  placeholder="0" disabled class="form-control">
-                                                </div>
-                                                </div>
-                                            </div>
-                                            
-                                        
+                                          
                                     </div>
+                                    <div id="alert"></div>
 
 							</p>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <input type="submit" class="btn btn-primary" value="Save" />
+							
+              <input id="submit" type="submit" class="btn btn-primary" value="Save" />
+              <a href="<?php echo URL ?>reservation" class="btn btn-secondary" data-dismiss="modal">Close</a>
               </form>
 						</div>
 					</div>

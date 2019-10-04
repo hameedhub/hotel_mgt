@@ -128,7 +128,8 @@
 						</div>
 						<div class="modal-footer">
 							
-              <input type="submit" class="btn btn-primary" value="Save" />
+              <input id="submit" type="submit" class="btn btn-primary" value="Save" />
+              
               <a  href="<?php echo URL ?>services" class="btn btn-secondary" data-dismiss="modal">Close</a>
               </form>
 						</div>

@@ -105,12 +105,12 @@
                                             
                                         
                                     </div>
-
+                                    <div id="alert"></div>
 							</p>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <input type="submit" class="btn btn-primary" value="Save" />
+              <input id="submit" type="submit" class="btn btn-primary" value="Save" />
+              <a href="<?php echo  URL?>room/type" class="btn btn-secondary" data-dismiss="modal">Close</a>
               </form>
 						</div>
 					</div>
