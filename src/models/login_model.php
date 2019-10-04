@@ -20,16 +20,20 @@ class Login_Model extends Model
 			':email'=> $email,
 			':password'=> $password
 		));
+		$data = $sth->fetchAll();
 		// check the rowcount
 		if($sth->rowCount() > 0){
-			$data = $sth->fetchAll();
-			Session::init();
-			Session::set('loggedIn', true);
-			Session::set('data', $data[0]);
-			header('location: ../dashboard');
+			if($data[0]['access'] == '0'){
+				echo "Sorry you have not been asigned access, please contact the manager. Thank you!";
+			}else {
+				Session::init();
+				Session::set('loggedIn', true);
+				Session::set('data', $data[0]);
+			};
 		}else{
-			header('location: ../login');
+			echo "Incorrect Email Address or Password";
 		}
+		
 	
 	}
 

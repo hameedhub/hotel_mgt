@@ -48,30 +48,30 @@
                             <form id="addUser" action="<?php echo URL?>register/addUser" method="post">
                                 <div class="form-group">
                                     <label>First Name</label>
-                                    <input class="au-input au-input--full" type="text" name="first_name" placeholder="Enter First Name ..">
+                                    <input class="au-input au-input--full" required type="text" name="first_name" placeholder="Enter First Name ..">
                                 </div>
                                 <div class="form-group">
                                     <label>Last Name</label>
-                                    <input class="au-input au-input--full" type="text" name="last_name" placeholder="Enter Last Name ..">
+                                    <input class="au-input au-input--full" required type="text" name="last_name" placeholder="Enter Last Name ..">
                                 </div>
                                 <div class="form-group">
                                     <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+                                    <input class="au-input au-input--full" required type="email" name="email" placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     <label>Phone</label>
-                                    <input class="au-input au-input--full" type="number" name="phone" placeholder="Enter Phone Number ..">
+                                    <input class="au-input au-input--full" required type="number" name="phone" placeholder="Enter Phone Number ..">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
+                                    <input class="au-input au-input--full" required type="password" name="password" placeholder="Password">
                                 </div>
                                 <div class="form-group">
                                     <label>Address</label>
-                                    <input class="au-input au-input--full" type="text" name="address" placeholder="Enter Address ..">
+                                    <input class="au-input au-input--full" required type="text" name="address" placeholder="Enter Address ..">
                                 </div>
                                
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">register</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" required type="submit">register</button>
                                 <div class="social-login-content">
                                 <div id="alert"></div>
                                 </div>

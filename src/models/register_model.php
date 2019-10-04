@@ -17,14 +17,14 @@ class Register_Model extends Model
                 ':last_name'=>$_POST['last_name'],
                 ':email'=>$_POST['email'],
                 ':phone'=>$_POST['phone'],
-                ':password'=>$_POST['password'],
+                ':password'=> md5($_POST['password']),
                 ':address'=>$_POST['address'],
                 ':access'=>0,
                 ':status'=>'active',                
             ));
+        }else {
+            echo "Email already exist, please Sign In into your acccount or use another email";
         };
-       
-        echo "Email already exist, please Sign In into your acccount or use another email";
         exit;
     }
 }
