@@ -41,11 +41,26 @@ class Booking_Model extends Model
         exit;
     }
     function viewBooking(){
-        $sth = $this->db->query('SELECT c.room_name, a.id, a.first_name, a.last_name, b.check_in, b.check_out, b.adults, b.children, b.rate, b.amount_paid, b.balance, b.status
+        $sth = $this->db->query('SELECT c.room_name, b.id, a.id as guest_id, c.id as room_id, a.first_name, a.last_name, b.check_in, b.check_out, b.adults, b.children, b.rate, b.amount_paid, b.balance, b.status
         FROM guest a, reservation b, room c
         WHERE a.id = b.guest_id AND b.room_id = c.id AND b.status = "CheckedIn" ORDER BY id DESC');
         $data = $sth->fetchAll();
         echo json_encode($data);
+        exit;
+    }
+    function checkout(){
+        echo   $arr = $_POST['data'];
+            $data =  explode(',', $arr);
+          
+       $id = $data[0];
+       $room_id = $data[1];
+       $guest_id = $data[2];
+       $sth = $this->db->prepare('UPDATE reservation SET status= "CheckedOut" WHERE id= "'.$id.'"');
+       $sth->execute();
+        $sth = $this->db->prepare('UPDATE guest SET status= "default" WHERE id= "'.$guest_id.'"');
+        $sth->execute();
+        $sth = $this->db->prepare('UPDATE room SET status= "Available" WHERE id= "'.$room_id.'"');
+        $sth->execute();
         exit;
     }
 

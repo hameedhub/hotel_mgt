@@ -28,6 +28,9 @@ class Booking extends Controller
     function viewBooking(){
         $this->model->viewBooking();
     }
+    function checkout(){
+        $this->model->checkout();
+    }
     function index(){
         $this->view->render('booking/index');
     }
