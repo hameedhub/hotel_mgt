@@ -135,14 +135,23 @@
                                                     <input type="date" required name="date" placeholder="Enter Date..." class="form-control">
                                                 </div>
                                             </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="hf-title" class=" form-control-label">Description</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="hf-description" required name="description" placeholder="Enter Description..." class="form-control">
+                                                </div>
+                                            </div>
                                         
                                     </div>
-
+                <div id="alert"></div>
 							</p>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <input type="submit" class="btn btn-primary" value="Save" />
+            <input type="submit" class="btn btn-primary" value="Save" />
+            <a  href="<?php echo URL?>dashboard" class="btn btn-secondary" data-dismiss="modal">Close</a>
+              
               </form>
 						</div>
 					</div>
@@ -169,7 +178,7 @@ $(function() {
             var data = {
                 title: element['title'],
                 start: moment().format(element['date']),
-                url: 'dashboard'
+                url: '<?php echo URL?>schedule'
               }
               arr.push(data);
               

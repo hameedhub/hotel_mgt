@@ -7,10 +7,11 @@ class Dashboard_Model extends Model
     }
     function insertEvent(){
         
-        $sth = $this->db->prepare('INSERT INTO `events`(`title`, `date`, `staff_id`) VALUES (:title, :date, :staff_id)');
+        $sth = $this->db->prepare('INSERT INTO `events`(`title`, `date`, `description`, `staff_id`) VALUES (:title, :date, :description, :staff_id)');
         $sth->execute(array(
             'title'=>$_POST['title'],
             'date'=>$_POST['date'],
+            'description'=>$_POST['description'],
             'staff_id'=>Session::get('data')['id']
         ));
         exit;
