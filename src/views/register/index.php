@@ -5,9 +5,10 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+   
+   
     <!-- Title Page-->
-    <title>Login</title>
+    <title>Register</title>
 
     <!-- Fontfaces CSS-->
     <link href="<?php echo URL ?>public/css/font-face.css" rel="stylesheet" media="all">
@@ -40,35 +41,46 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="<?php echo URL ?>public/images/icon/logo.png" alt="dev">
+                                <img src="<?php echo URL ?>public/images/icon/logo.png" alt="Hotel">
                             </a>
                         </div>
-                        <div id="alert"> </div>
                         <div class="login-form">
-                            <form id="login" action="<?php echo URL ?>login/run" method="post">
-                            
+                            <form id="addUser" action="<?php echo URL?>register/addUser" method="post">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input class="au-input au-input--full" required type="text" name="first_name" placeholder="Enter First Name ..">
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input class="au-input au-input--full" required type="text" name="last_name" placeholder="Enter Last Name ..">
+                                </div>
                                 <div class="form-group">
                                     <label>Email Address</label>
                                     <input class="au-input au-input--full" required type="email" name="email" placeholder="Email">
                                 </div>
                                 <div class="form-group">
+                                    <label>Phone</label>
+                                    <input class="au-input au-input--full" required type="number" name="phone" placeholder="Enter Phone Number ..">
+                                </div>
+                                <div class="form-group">
                                     <label>Password</label>
                                     <input class="au-input au-input--full" required type="password" name="password" placeholder="Password">
                                 </div>
-                                <div class="login-checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember">Remember Me
-                                    </label>
-                                    <label>
-                                        <a href="#">Forgotten Password?</a>
-                                    </label>
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <input class="au-input au-input--full" required type="text" name="address" placeholder="Enter Address ..">
                                 </div>
-                                <button  class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+                               
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" required type="submit">register</button>
+                                <div class="social-login-content">
+                                <div id="alert"></div>
+                                </div>
                             </form>
+                            
                             <div class="register-link">
                                 <p>
-                                    Don't you have account?
-                                    <a href="<?php echo URL ?>register">Sign Up Here</a>
+                                    Already have account?
+                                    <a href="<?php echo URL ?>login">Sign In</a>
                                 </p>
                             </div>
                         </div>
@@ -81,7 +93,6 @@
 
     <!-- Jquery JS-->
     <script src="<?php echo URL ?>public/vendor/jquery-3.2.1.min.js"></script>
-
     <?php
       if(isset($this->js)){
           foreach ($this->js as $js) {

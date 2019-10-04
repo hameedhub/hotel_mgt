@@ -49,6 +49,7 @@
                                                 <th>Amount Paid</th>
                                                 <th>Balance</th>
                                                 <th>Status</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody id="bookings">

@@ -40,29 +40,7 @@
                             <a href="<?php echo URL?>services">
                                 <i class="far fa-check-square"></i>Services</a>
                         </li>
-                        <li>
-                            <a href="<?php URL?>history">
-                                <i class="fas fa-calendar-alt"></i>History</a>
-                        </li>
-                        <li>
-                            <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Settings</a>
-                        </li>
-                        <!-- <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
-                                </li>
-                            </ul>
-                        </li> -->
+                        
                     </ul>
                 </nav>
             </div>

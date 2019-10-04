@@ -18,8 +18,17 @@ class Staff extends Controller
     function view(){
         $this->model->view();
     }
+    function viewAccess(){
+        $this->model->viewAccess();
+    }
+    function viewUsers(){
+        $this->model->viewUsers();
+    }
     function index(){
         $this->view->render('staff/index');
+    }
+    function role(){
+        $this->model->role();
     }
    
 }
