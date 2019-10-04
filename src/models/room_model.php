@@ -28,7 +28,7 @@ class Room_Model extends Model
             'room_name'=> $_POST['room_name'],
             'room_type'=>$_POST['room_type'],
             'location'=>$_POST['location'],
-            'status'=>'available'
+            'status'=>'Available'
         ));
         exit;
     }
