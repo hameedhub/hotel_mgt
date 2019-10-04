@@ -1,4 +1,19 @@
 $(function(){
+    $.get('staff/viewAccess', function(e){
+        
+        e.forEach(o => {
+            $('#selectAccess').append(`<option value="${o['id']}">${o['access']}</option>`);
+
+        });
+    }, 'json');
+
+    $.get('staff/viewUsers', function(e){
+        
+        e.forEach(o => {
+            $('#selectUsers').append(`<option value="${o['id']}">${o['first_name']} - ${o['last_name']}</option>`);
+
+        });
+    }, 'json');
 
     $.get('staff/view', function(e){
        e.forEach(o => {
@@ -22,19 +37,6 @@ $(function(){
         </td>
         
         <td>
-
-            <div class="rs-select2--trans rs-select2--sm">
-                <select class="js-select2" required name="access">
-                    <option value="0">None</option>
-                    <option value="1">Staff</option>
-                    <option value="2">Manager</option>
-                    <option value="3">Store</option>
-                    <option value="4">Accountant</option>
-                </select>
-                <div class="dropDownSelect2"></div>
-            </div>
-        </td>
-        <td>
             <span class="status--process">${o['status']}</span>
         </td>
 
@@ -53,8 +55,21 @@ $(function(){
 
     }, 'json');
 
-    $.post(url, data, function(){
-
-    });
+    $('#role').submit(function(){
+        var url = $(this).attr('action');
+        var data = $(this).serialize();
+        
+        $.post(url, data, function(e){
+            console.log(e);
+            $('#alert').append(`<div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+            Access role was saved successful, click close if you're done.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>`);
+        });
+ 
+         return false;
+     });
 
 });

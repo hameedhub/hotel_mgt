@@ -14,6 +14,28 @@ class Staff_Model extends Model
         echo json_encode($data);
         exit;
     }
+    function viewUsers(){
+        $sth = $this->db->query('SELECT * FROM users');
+        $sth->execute();
+        $data = $sth->fetchAll();
+        echo json_encode($data);
+        exit;
+    }
+    function viewAccess(){
+        $sth = $this->db->query('SELECT * FROM users_access');
+        $sth->execute();
+        $data = $sth->fetchAll();
+        echo json_encode($data);
+        exit;
+    }
+    function role(){
+        $sth = $this->db->prepare('UPDATE users SET access = :access WHERE id =:id');
+        $sth->execute(array(
+            ':access'=>$_POST['access'],
+            ':id'=>$_POST['staff_id']
+        ));
+        exit;
+    }
 }
 
 

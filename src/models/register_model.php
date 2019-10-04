@@ -20,7 +20,7 @@ class Register_Model extends Model
                 ':password'=> md5($_POST['password']),
                 ':address'=>$_POST['address'],
                 ':access'=>0,
-                ':status'=>'active',                
+                ':status'=>'Active',                
             ));
         }else {
             echo "Email already exist, please Sign In into your acccount or use another email";
