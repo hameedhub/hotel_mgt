@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+
 /**
  * Application class
  */
@@ -24,10 +24,9 @@ class App
 		if (file_exists($file)) {
 			require $file;
 		}else{
-
-			throw new Error('Page not found');
-			// require 'controllers/error.php';
-			// $controllers = new Error();
+			require 'controllers/error_.php';
+			$controllers = new Error_();
+			$controllers->index();
 			return false;
 			
 		}

@@ -3,14 +3,16 @@
 /**
  * Erorr Controller
  */
-class Erorr extends Controller
+class Error_ extends Controller
 {
 	
 	function __construct()
 	{
 		parent::__construct();
-		echo "Page Not found";
-		$this->view->render('error/index');
+		
+	}
+	function index(){
+		$this->view->render('error_/index');
 	}
 }
 ?>
