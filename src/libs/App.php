@@ -35,15 +35,31 @@ class App
 		$controller->loadModel($url[0]);
 
 		if (isset($url[2])) {
-			$controller->{$url[1]}($url[2]);
+			if (method_exists($controller, $url[2])) {
+				$controller->{$url[1]}($url[2]);
+			}else{
+				require 'controllers/error_.php';
+				$controllers = new Error_();
+				$controllers->index();
+				return false;
+			}
 		}else{
 			if (isset($url[1])) {
-				$controller->{$url[1]}();
+				if (method_exists($controller, $url[1])) {
+					$controller->{$url[1]}();
+				}else {
+					require 'controllers/error_.php';
+					$controllers = new Error_();
+					$controllers->index();
+					return false;	
+				}
+				
 			}
 		}
 		if(isset($url[1])){
 			$controller->screen();
 		}
+
 		$controller->index();
 
 	}
