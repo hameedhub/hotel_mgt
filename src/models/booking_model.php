@@ -1,4 +1,4 @@
-<?php 
+<?php
 class Booking_Model extends Model
 {
     function __construct(){
@@ -37,7 +37,7 @@ class Booking_Model extends Model
         $sthRoom->execute();
         $sthGuest = $this->db->query('UPDATE guest SET status = "booked" WHERE id = "'.$_POST['guest_id'].'"');
         $sthGuest->execute();
-       
+
         exit;
     }
     function viewBooking(){
@@ -51,7 +51,7 @@ class Booking_Model extends Model
     function checkout(){
         echo   $arr = $_POST['data'];
             $data =  explode(',', $arr);
-          
+
        $id = $data[0];
        $room_id = $data[1];
        $guest_id = $data[2];
@@ -62,6 +62,13 @@ class Booking_Model extends Model
         $sth = $this->db->prepare('UPDATE room SET status= "Available" WHERE id= "'.$room_id.'"');
         $sth->execute();
         exit;
+    }
+    function roomTab($id){
+      $sth = $this->db->query('SELECT c.room_name, d.room_type_name, d.price, b.id, a.id as guest_id, c.id as room_id, a.first_name, a.last_name, b.check_in, b.check_out, b.adults, b.children, b.rate, b.amount_paid, b.balance, b.status
+      FROM guest a, reservation b, room c, room_type d
+      WHERE a.id = b.guest_id AND b.room_id = c.id AND c.room_type = d.id AND b.id = '.$id.' ORDER BY id DESC');
+      return $data = $sth->fetch();
+      exit;
     }
 
 }

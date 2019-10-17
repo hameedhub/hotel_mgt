@@ -14,7 +14,12 @@ class Booking extends Controller
 
     }
     function screen(){
-        
+
+    }
+    function tab($id){
+      $this->view->user = $this->model->roomTab($id);
+      $this->view->render('booking/tab');
+      exit();
     }
     function availRooms(){
         $this->model->availRooms();
