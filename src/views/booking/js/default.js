@@ -54,4 +54,30 @@ $(function(){
 
          return false;
      });
+     $.get('../getServices', function(e){
+        
+        e.forEach(o => {
+            $('#service').append(`<option value="${o['id']}"> ${o['name']} - ${o['outlet']} - ₦${o['price']}</option>`);
+
+        });
+
+    }, 'json');
+
+    $('#addTab').submit(function(){
+        var url = $(this).attr('action');
+        var data = $(this).serialize();
+
+        $.post(url, data, function(e){
+            $('#alert').append(`<div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+            Service tab was successful, click close if you're done.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>`);
+        $('#submit').attr('hidden', true);
+        });
+         return false;
+     });
+
+
 });

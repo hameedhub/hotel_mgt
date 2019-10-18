@@ -52,7 +52,7 @@
                                           </tr>
 
                                       </thead>
-                                      <tbody style="font-size:80%">
+                                      <tbody style="font-size:80%" id="tab">
                                           <tr >
                                               <td>
                                                 <span class="block-email"><?php echo $this->user['room_name'] ?></span>
@@ -77,6 +77,39 @@
                                               </td>
                                           </tr>
                                           <tr class="spacer"></tr>
+                                            <?php 
+                                           foreach($this->tab as $value){?>
+                                           
+                                           <tr >
+                                              <td>
+                                                <span class="block-email"><?php echo $value['name'] ?></span>
+                                              <td>
+                                                  <span class="desc"><?php echo $value['product'] ?></span>
+                                              </td>
+                                              <td><?php echo $value['qty'] ?></td>
+                                              <td><?php echo $value['price'] ?></td>
+                                              <td><?php echo $value['amount_paid'] ?></td>
+                                              <td>
+                                                  <span class="status--process"><?php echo $value['qty']  ?></span>
+                                              </td>
+                                              <td class="status--process"><?php echo $value['status']?></td>
+                                              <td>
+                                                  <div class="table-data-feature">
+
+                                                      <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                          <i class="zmdi zmdi-edit"></i>
+                                                      </button>
+
+                                                  </div>
+                                              </td>
+                                          </tr>
+                                          <tr class="spacer"></tr>
+                                           
+                                           <?php }
+                                            
+                                            ?>
+
+
 
                                       </tbody>
                                   </table>
@@ -114,7 +147,7 @@
 							<p>
 								<!-- Schedule events -->
                 <div class="card-body card-block">
-                                        <form id="addBooking" action="<?php echo URL ?>booking/addBooking" method="post" class="form-horizontal">
+                                        <form id="addTab" action="<?php echo URL ?>booking/addTab" method="post" class="form-horizontal">
                                             <div class="row form-group">
                                                 <div class="col col-md-6">
                                                 <div class="form-group">
@@ -127,7 +160,7 @@
                                                 <div class="col col-md-6">
                                                 <div class="form-group">
                                                 <label class=" form-control-label">Amount Paid</label>
-                                                <input type="number"  name="amount_paid" placeholder="Enter Amount Paid" class="form-control">
+                                                <input type="number" required  name="amount_paid" placeholder="Enter Amount Paid" class="form-control">
                                                 </div>
                                                 </div>
                                             </div>
@@ -135,13 +168,13 @@
                                                 <div class="col col-md-6">
                                                 <div class="form-group">
                                                 <label class=" form-control-label">Quantity</label>
-                                                <input type="number"  name="qty" placeholder="Quantity of product" class="form-control">
+                                                <input type="number" required  name="qty" placeholder="Quantity of product" class="form-control">
                                                 </div>
                                                 </div>
                                                 <div class="col col-md-6">
                                                 <div class="form-group">
                                                 <label for="guest" class=" form-control-label">Status</label>
-                                                <select name="service_id" required id="status" class="form-control">
+                                                <select name="status" required id="status" class="form-control">
                                                         <option value="">Select Status </option>
                                                         <option value="Successful">Successful</option>
                                                         <option value="Declined">Declined</option>
@@ -159,6 +192,7 @@
 							</p>
 						</div>
 						<div class="modal-footer">
+                        <input type="hidden" name="booking_id" value="<?php echo $this->user['id'] ?>"  />
 
                         <input id="submit" type="submit" class="btn btn-primary" value="Save" />
               <a href="<?php echo URL ?>booking/tab/<?php echo $this->user['id'] ?>" class="btn btn-secondary" data-dismiss="modal">Close</a>

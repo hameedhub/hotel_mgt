@@ -70,6 +70,34 @@ class Booking_Model extends Model
       return $data = $sth->fetch();
       exit;
     }
+    function getServices(){
+        $sth = $this->db->query('SELECT * FROM services ORDER BY id DESC');
+        $sth->execute();
+        $data = $sth->fetchAll();
+        echo json_encode($data);
+        exit;
+    }
+    function addTab(){
+        $sth = $this->db->prepare('INSERT INTO `tab`(`service_id`, `booking_id`, `amount_paid`, `qty`, `status`) 
+        VALUES (:service_id,:booking_id,:amount_paid,:qty,:status)');
+        $sth->execute(array(
+            ':service_id'=>$_POST['service_id'],
+            ':booking_id'=>$_POST['booking_id'],
+            ':amount_paid'=> $_POST['amount_paid'],
+            ':qty'=>$_POST['qty'],
+            ':status'=>$_POST['status']
+        ));
+        var_dump($sth->errorInfo());
+        exit;
+    }
+    function viewTab($id){
+        $sth = $this->db->query('SELECT a.id, a.amount_paid, a.qty, a.status, b.name, b.outlet, b.product, b.price, b.description 
+        FROM tab a, services b 
+        WHERE a.service_id = b.id AND a.booking_id = '.$id.' ');
+        $sth->execute();
+        return $sth->fetchAll();
+       
+    }
 
 }
 
