@@ -64,7 +64,7 @@ class Booking_Model extends Model
         exit;
     }
     function roomTab($id){
-      $sth = $this->db->query('SELECT c.room_name, d.room_type_name, d.price, b.id, a.id as guest_id, c.id as room_id, a.first_name, a.last_name, b.check_in, b.check_out, b.adults, b.children, b.rate, b.amount_paid, b.status
+      $sth = $this->db->query('SELECT c.room_name, d.room_type_name, d.price, b.id, a.id as guest_id, c.id as room_id, a.first_name, a.last_name, a.email, a.tel_no, b.check_in, b.check_out, b.adults, b.children, b.rate, b.amount_paid, b.status
       FROM guest a, reservation b, room c, room_type d
       WHERE a.id = b.guest_id AND b.room_id = c.id AND c.room_type = d.id AND b.id = '.$id.' ORDER BY id DESC');
       return $data = $sth->fetch();
@@ -109,6 +109,14 @@ class Booking_Model extends Model
         //print_r($sth->errorInfo());
         header('Location: ../tab/'.$_POST['booking_id']);
         exit;
+    }
+    function printTab($id){
+        $sth = $this->db->query('SELECT a.id, a.amount_paid, a.qty, a.status, b.name, b.outlet, b.product, b.price, b.description 
+        FROM tab a, services b 
+        WHERE a.service_id = b.id AND a.booking_id = '.$id.' AND a.status="Successful" ');
+        $sth->execute();
+        return $sth->fetchAll();
+       
     }
 
 }

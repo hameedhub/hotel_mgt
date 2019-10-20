@@ -141,8 +141,7 @@
                                          array_push($arr_bal, $balance);
                                         };
                                             
-                                            print_r($arr_bal);
-                                            ?>
+                                                    ?>
                                             <tr class="spacer"></tr>
                                             <tr class="spacer"></tr>
 
@@ -193,15 +192,10 @@
                                             <i class="fa fa-send"></i> Mail
                                         </button>
 
-                                        <button onclick="do()" type="print" class="btn btn-primary btn-sm">
+                                        <a href="../print/<?php echo $this->user['id'] ?>" class="btn btn-primary btn-sm">
                                             <i class="fa fa-dot-circle-o"></i> Print
-                                        </button>
-                                            <script>
-                                                function do(){
-                                                    alert(1);
-                                                    window.print();
-                                                }
-                                                </script>
+                                    </a>
+                                            
                                             </div>
                                         </form>
                                     </div>

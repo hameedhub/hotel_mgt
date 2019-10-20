@@ -53,7 +53,10 @@ class Booking extends Controller
         $this->model->updateTab($id);
     }
     function print($id){
-        $this->model->print();
+        $this->view->user = $this->model->roomTab($id);
+        $this->view->tab = $this->model->printTab($id);
+        $this->view->render('booking/print');
+        exit;
     }
 }
 
