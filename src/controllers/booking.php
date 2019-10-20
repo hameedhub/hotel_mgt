@@ -49,6 +49,12 @@ class Booking extends Controller
     function viewTab($id){
         $this->model->viewTab($id);
     }
+    function updateTab($id){
+        $this->model->updateTab($id);
+    }
+    function print($id){
+        $this->model->print();
+    }
 }
 
 

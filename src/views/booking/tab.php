@@ -59,11 +59,18 @@
                                               <td>
                                                   <span class="desc"><?php echo $this->user['room_type_name'] ?></span>
                                               </td>
-                                              <td>1</td>
+                                              <td><?php 
+                                             $check_in = strtotime($this->user['check_in']);
+                                              $check_out = strtotime($this->user['check_out']);
+                                             $diff = $check_out - $check_in;
+                                            $days = round($diff/(60 * 60 * 24));
+                                             echo  $days;
+                                              
+                                              ?></td>
                                               <td><?php echo $this->user['price'] ?></td>
-                                              <td><?php echo $this->user['amount_paid'] ?></td>
+                                              <td><?php echo $room_total = $this->user['amount_paid'] ?></td>
                                               <td>
-                                                  <span class="status--process"><?php echo $this->user['price'] - $this->user['amount_paid'] ?></span>
+                                                  <span class="danger"><?php echo  $room_bal= $this->user['price'] * $days - $this->user['amount_paid'] ?></span>
                                               </td>
                                               <td class="status--process"><?php echo $this->user['status']?></td>
                                               <td>
@@ -78,36 +85,66 @@
                                           </tr>
                                           <tr class="spacer"></tr>
                                             <?php 
+                                            $arr_total = array();
+                                            $arr_bal = array();
                                            foreach($this->tab as $value){?>
-                                           
+                                           <form action="../updateTab/<?php echo $value['id']?>" method="POST">
                                            <tr >
                                               <td>
                                                 <span class="block-email"><?php echo $value['name'] ?></span>
                                               <td>
                                                   <span class="desc"><?php echo $value['product'] ?></span>
                                               </td>
-                                              <td><?php echo $value['qty'] ?></td>
-                                              <td><?php echo $value['price'] ?></td>
-                                              <td><?php echo $value['amount_paid'] ?></td>
+                                              <td><input style="width:50px" type="number" value="<?php echo $value['qty'] ?>" name="qty" ></td>
+                                              <td><?php if($value['status'] == "Declined"){
+                                                  echo $total = 0;
+                                              }else{
+                                                echo  $total =  $value['price'];
+                                              }
+                                               ?></td>
+                                              <td> <input style="width:70px" type="number" value="<?php echo $value['amount_paid'] ?>" name="amount_paid"> </td>
                                               <td>
-                                                  <span class="status--process"><?php echo $value['qty']  ?></span>
+                                                  <span class="status--process"><?php
+                                                  if($value['status'] == "Declined"){
+                                                     echo $balance = 0;
+                                                  }else{
+                                                    echo $balance = $value['price'] * $value['qty'] - $value['amount_paid'];
+                                                  };
+                                                  ?></span>
                                               </td>
-                                              <td class="status--process"><?php echo $value['status']?></td>
+                                              <td class="status--process">
+                                              <select name="status">
+                                                <option selected value="<?php echo $value['status']?>"><?php echo $value['status']?></option>
+                                                <option value="Successful">Successful</option>
+                                                <option value="Declined">Declined</option>
+                                              </select>
+                              
+                                              </td>
                                               <td>
                                                   <div class="table-data-feature">
 
-                                                      <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                          <i class="zmdi zmdi-edit"></i>
+                                                      <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Save">
+                                                          <i class="zmdi zmdi-save"></i>
                                                       </button>
 
                                                   </div>
                                               </td>
                                           </tr>
                                           <tr class="spacer"></tr>
+                                          <input type="hidden" name="booking_id" value="<?php echo $this->user['id']?>" >
+                                           </form>
                                            
-                                           <?php }
+                                           <?php
+
+                                           
+                                         array_push($arr_total, $total);  
+                                         array_push($arr_bal, $balance);
+                                        };
                                             
+                                            print_r($arr_bal);
                                             ?>
+                                            <tr class="spacer"></tr>
+                                            <tr class="spacer"></tr>
 
 
 
@@ -116,6 +153,60 @@
                               </div>
                             </div>
 
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">Invoice Information</div>
+                                    <div class="card-body">
+                                        <!-- <div class="card-title">
+                                            <h3 class="text-center title-2">Pay Invoice</h3>
+                                        </div> -->
+                                        <hr>
+                                        <form action="" method="post" novalidate="novalidate">
+                                            <div class="form-group">
+                                                <label for="cc-payment" class="control-label mb-1">Customer Name</label>
+                                                <input id="cc-pament" name="fullname" type="text" class="form-control"  disabled value="<?php echo $this->user['first_name']. ' '. $this->user['last_name'] ?>">
+                                            </div>
+                                           
+                                           
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label mb-1">Total</label>
+                                                        <input id="cc-exp" name="total" type="text" disabled class="form-control cc-exp" value="₦<?php echo $room_total + array_sum($arr_total)?>">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <label  class="control-label mb-1">Balance</label>
+                                                    <div class="input-group">
+                                                        <input id="" name="balance" disabled type="text" class="form-control cc-cvc" value="₦<?php echo $room_bal + array_sum($arr_bal)?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                        <!-- Button -->
+                                        <button type="reset" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-ban"></i> Checkout
+                                        </button>
+                                        
+                                        <button type="reset" class="btn btn-success btn-sm">
+                                            <i class="fa fa-send"></i> Mail
+                                        </button>
+
+                                        <button onclick="do()" type="print" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> Print
+                                        </button>
+                                            <script>
+                                                function do(){
+                                                    alert(1);
+                                                    window.print();
+                                                }
+                                                </script>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 
 
                         </div>

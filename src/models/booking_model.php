@@ -19,7 +19,7 @@ class Booking_Model extends Model
         exit;
     }
     function addBooking(){
-        $sth = $this->db->prepare('INSERT INTO `reservation`(`guest_id`, `room_id`, `check_in`, `check_out`, `adults`, `children`, `amount_paid`, `balance`, `status`, `rate`, `staff_id`) VALUES (:guest_id,:room_id,:check_in,:check_out,:adults,:children,:amount_paid,:balance,:status,:rate,:staff_id)');
+        $sth = $this->db->prepare('INSERT INTO `reservation`(`guest_id`, `room_id`, `check_in`, `check_out`, `adults`, `children`, `amount_paid`, `status`, `rate`, `staff_id`) VALUES (:guest_id,:room_id,:check_in,:check_out,:adults,:children,:amount_paid,:status,:rate,:staff_id)');
         $sth->execute(array(
             'guest_id'=> $_POST['guest_id'],
             'room_id'=>$_POST['room_id'],
@@ -28,11 +28,11 @@ class Booking_Model extends Model
             'adults'=>$_POST['adults'],
             'children'=>$_POST['children'],
             'amount_paid'=>$_POST['amount_paid'],
-            'balance'=>$_POST['balance'],
             'rate'=>$_POST['rate'],
             'status'=>'CheckedIn',
             'staff_id'=>Session::get('data')['id']
         ));
+        print_r($sth->errorInfo());
         $sthRoom = $this->db->query('UPDATE room SET status = "Booked" WHERE id = "'.$_POST['room_id'].'"');
         $sthRoom->execute();
         $sthGuest = $this->db->query('UPDATE guest SET status = "booked" WHERE id = "'.$_POST['guest_id'].'"');
@@ -41,7 +41,7 @@ class Booking_Model extends Model
         exit;
     }
     function viewBooking(){
-        $sth = $this->db->query('SELECT c.room_name, b.id, a.id as guest_id, c.id as room_id, a.first_name, a.last_name, b.check_in, b.check_out, b.adults, b.children, b.rate, b.amount_paid, b.balance, b.status
+        $sth = $this->db->query('SELECT c.room_name, b.id, a.id as guest_id, c.id as room_id, a.first_name, a.last_name, b.check_in, b.check_out, b.adults, b.children, b.rate, b.amount_paid, b.status
         FROM guest a, reservation b, room c
         WHERE a.id = b.guest_id AND b.room_id = c.id AND b.status = "CheckedIn" ORDER BY id DESC');
         $data = $sth->fetchAll();
@@ -64,7 +64,7 @@ class Booking_Model extends Model
         exit;
     }
     function roomTab($id){
-      $sth = $this->db->query('SELECT c.room_name, d.room_type_name, d.price, b.id, a.id as guest_id, c.id as room_id, a.first_name, a.last_name, b.check_in, b.check_out, b.adults, b.children, b.rate, b.amount_paid, b.balance, b.status
+      $sth = $this->db->query('SELECT c.room_name, d.room_type_name, d.price, b.id, a.id as guest_id, c.id as room_id, a.first_name, a.last_name, b.check_in, b.check_out, b.adults, b.children, b.rate, b.amount_paid, b.status
       FROM guest a, reservation b, room c, room_type d
       WHERE a.id = b.guest_id AND b.room_id = c.id AND c.room_type = d.id AND b.id = '.$id.' ORDER BY id DESC');
       return $data = $sth->fetch();
@@ -78,14 +78,15 @@ class Booking_Model extends Model
         exit;
     }
     function addTab(){
-        $sth = $this->db->prepare('INSERT INTO `tab`(`service_id`, `booking_id`, `amount_paid`, `qty`, `status`) 
-        VALUES (:service_id,:booking_id,:amount_paid,:qty,:status)');
+        $sth = $this->db->prepare('INSERT INTO `tab`(`service_id`, `booking_id`, `amount_paid`, `qty`, `status`, `staff_id`) 
+        VALUES (:service_id,:booking_id,:amount_paid,:qty,:status,:staff_id)');
         $sth->execute(array(
             ':service_id'=>$_POST['service_id'],
             ':booking_id'=>$_POST['booking_id'],
             ':amount_paid'=> $_POST['amount_paid'],
             ':qty'=>$_POST['qty'],
-            ':status'=>$_POST['status']
+            ':status'=>$_POST['status'],
+            'staff_id'=>Session::get('data')['id']
         ));
         var_dump($sth->errorInfo());
         exit;
@@ -97,6 +98,17 @@ class Booking_Model extends Model
         $sth->execute();
         return $sth->fetchAll();
        
+    }
+    function updateTab($id){
+        $sth = $this->db->prepare('UPDATE tab SET amount_paid=:amount_paid, qty=:qty, status=:status WHERE id = "'.$id.'"');
+        $sth->execute(array(
+            ':amount_paid'=>$_POST['amount_paid'],
+            ':qty'=>$_POST['qty'],
+            ':status'=>$_POST['status']
+        ));
+        //print_r($sth->errorInfo());
+        header('Location: ../tab/'.$_POST['booking_id']);
+        exit;
     }
 
 }
