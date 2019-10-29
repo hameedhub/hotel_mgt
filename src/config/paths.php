@@ -1,6 +1,6 @@
 <?php
 
-define('URL', 'http://localhost:8080/hotel_mgt/src/');
+define('URL', 'http://localhost/hotel_mgt/src/');
 define('director', '1');
 define('manager', '2');
 define('accountant', '3');

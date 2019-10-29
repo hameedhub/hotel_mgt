@@ -111,13 +111,13 @@
                                                 <div class="col col-md-6">
                                                 <div class="form-group">
                                                 <label class=" form-control-label">No. Adult</label>
-                                                <input type="number"  name="adults" placeholder="Number of Adult" class="form-control">
+                                                <input type="number" required  name="adults" placeholder="Number of Adult" class="form-control">
                                                 </div>
                                                 </div>
                                                 <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                 <label class=" form-control-label">No. Children</label>
-                                                <input type="number" name="children"  placeholder="Number of Children" class="form-control">
+                                                <input type="number" required name="children"  placeholder="Number of Children" class="form-control">
                                                 </div>
                                                 </div>
                                             </div>
@@ -138,19 +138,14 @@
                                             </div>
                                     
                                             <div class="row form-group">
-                                                <div class="col col-md-4">
+                                                <div class="col col-md-6">
                                                 <div class="form-group">
                                                 <label class=" form-control-label">Amount Paid</label>
                                                 <input type="number"  name="amount_paid" placeholder="Enter Amount Paid" class="form-control">
                                                 </div>
                                                 </div>
-                                                <div class="col-12 col-md-4">
-                                                <div class="form-group">
-                                                <label class=" form-control-label">Balance</label>
-                                                <input type="number" name="balance"  placeholder="Enter Balance" class="form-control">
-                                                </div>
-                                                </div>
-                                                <div class="col-12 col-md-4">
+                                                
+                                                <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                 <label class=" form-control-label">Rate</label>
                                                 <input type="text" name="rate"  placeholder="Enter Rate" class="form-control">
